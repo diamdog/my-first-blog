@@ -1,26 +1,27 @@
 {% load static %}
 <html>
     <head>
-        <title>Django Girls blog</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <title>Experience</title>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet" type="text/css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     </head>
     <body>
         <div class="page-header">
-            <h1><a href="/">Django Girls Blog</a></h1>
-            {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            {% endif %}
+            <h1>My Thoughts</h1>
         </div>
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </div>
-        </div>
+
+        {% block content %}
+        {% endblock %}
+
+       <script type="text/javascript">
+        $(".item-header").click(function() {
+            $(".accordion-item").removeClass("active");
+            $(this).parent().addClass("active");
+            $(".icon").text("+");
+            $(this).children(".icon").text("-");
+        });
+        </script>
+
     </body>
 </html>
